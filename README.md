@@ -2,4 +2,4 @@
 Team 8 assignments
 
 Contribution:
-Yuanhang: Wrote Q1 and Q2
+Yuanhang: Wrote Q1 Q2 and Q4
