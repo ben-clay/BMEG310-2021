@@ -55,3 +55,38 @@ row_position
 
 ##On row 79, 120,318,361,370,724 and 762 these InDels have a read deoth greater than 15.
 
+##Q4
+count_ALT<-function(file){
+  data<-read.csv(basename(file))
+  ALT=data$ALT
+  row=1
+  A=0
+  C=0
+  T=0
+  G=0
+  for (val in data$INDEL){
+    if(val==TRUE){
+      x=strsplit(ALT[row],"")[[1]]
+      for(char in x){
+        if(char=="A"){
+          A=A+1
+        }
+        if(char=="T"){
+          T=T+1
+        }
+        if(char=="C"){
+          C=C+1
+        }
+        if(char=="G"){
+          G=G+1
+        }
+      }
+     
+    }
+    row=row+1
+  }
+  sprintf("A:%s T:%s C:%s G:%s", A,T,C,G)
+}
+
+##Output: with input of file "VCFdata.csv"
+##[1] "A:151 T:155 C:278 G:201"
