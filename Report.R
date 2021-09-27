@@ -90,3 +90,22 @@ count_ALT<-function(file){
 
 ##Output: with input of file "VCFdata.csv"
 ##[1] "A:151 T:155 C:278 G:201"
+
+### Q5: How many variants have more than two deletions? In essence, we need to look at the ALT field and see if the length of the characters in the ALT field is larger than the characters in the REF field (ie ALT > REF +2). 
+myData <- read.csv("VCFdata.csv")
+```{r}
+
+IDEL <- which (myData[,9] == "TRUE")
+count <- 0 
+for(i in 1:length(IDEL)){
+  ALT <- nchar(myData[(IDEL[i]), 6], type = "chars")
+  REF <- nchar(myData[(IDEL[i]), 5], type = "chars")
+  if(ALT > (REF + 2)){
+    
+  }
+ count <- count + 1
+}
+show(count)
+
+```
+
